@@ -1,0 +1,10 @@
+.country {
+  stroke: white;
+  stroke-width: 1;
+  opacity: 0.8;
+}
+
+#year {
+  display: block;
+  margin: 0 auto;
+}

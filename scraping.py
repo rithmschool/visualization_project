@@ -9,7 +9,7 @@ payload = {
   'ob': 'GTDID',
   'od': 'desc',
   'page': 1,
-  'count': 100
+  'count': 500
 }
 
 def get_table(url, payload):
@@ -33,6 +33,6 @@ with open('attacks.csv', 'a') as csvfile:
       columns = row.find_all("td")
       if columns[5].text != '0' or columns[6].text != '0': 
         writer.writerow([col.text for col in columns[1:7]])
-    print("page " + payload["count"] + " complete")
-    payload['count'] += 1
+    print("page " + str(payload["page"]) + " complete")
+    payload['page'] += 1
     table = get_table(url, payload)
