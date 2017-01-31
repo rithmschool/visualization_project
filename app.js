@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-  var mapWidth = 600;
-  var mapHeight = 375;
+  var width = 600;
+  var height = 375;
   var mapSVG =  d3.select("#map")
                   .append("svg")
-                  .attr("width", mapWidth)
-                  .attr("height", mapHeight);
+                  .attr("width", width)
+                  .attr("height", height);
+  var chartPadding = {
+    top: 30,
+    right: 50,
+    bottom: 60,
+    left: 30
+  };
+  var chartSVG = d3.select("#chart")
+                   .append("svg")
+                   .attr("width", width)
+                   .attr("height", height);
+  chartSVG.append("g")
+    .attr("class", "axis")
+    .attr("transform", "translate(" + ((width - chartPadding.left - chartPadding.right) / 20) + "," + (height - chartPadding.bottom) + ")")
   var colorScale = d3.scaleLinear()
                      .domain([0, 0.01, 0.1, 0.5, 1])
                      .range(['green', 'yellow', 'orange', 'red', 'black']);
@@ -14,7 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var maxDestruction = 0;
   year.addEventListener('input', function(e) {
     updateMap(mapSVG, +e.target.value, maxDestruction);
+    updateChart(chartSVG, +e.target.value);
   });
+  var INITIAL_YEAR = 1970;
+  var barPadding = 1;
 
   d3.queue()
     .defer(d3.csv, '/attacks.csv')
@@ -59,9 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       });
-      // debugger;
-      createMap(mapSVG, 90, mapWidth / 2, mapHeight / 1.4, countries.features);
-      updateMap(mapSVG, 1970, maxDestruction);
+
+      createMap(mapSVG, 90, width / 2, height / 1.4, countries.features);
+      updateMap(mapSVG, INITIAL_YEAR, maxDestruction);
+      updateChart(chartSVG, INITIAL_YEAR)
     });
 
     function updateMap(svg, year, scaleFactor) {
@@ -69,14 +86,7 @@ document.addEventListener('DOMContentLoaded', function() {
       svg.selectAll(".country")
          .attr('fill', function(d) {
            var total = 0;
-           if (d.properties.years) { 
-             for (var key in d.properties.years[year]) {
-               total += d.properties.years[year][key];
-             }
-           }
-           if (total > 0) {
-             console.log(d.properties.name, total)
-           }
+           if (d.properties.years) total += fatalitiesAndInjuries(d.properties.years[year]);
            return colorScale(total / scaleFactor);
          });
     }
@@ -98,9 +108,71 @@ document.addEventListener('DOMContentLoaded', function() {
               .attr('id', d=>d.properties.name)
 
       svg.append("path")
-          .datum(topojson.mesh(countryData, function(a, b) { return a.id !== b.id; }))
+          .datum(topojson.mesh(countryData, (a, b) => a.id !== b.id ))
           .attr("class", "names")
           .attr("d", path);
+    }
+
+    function updateChart(svg, year) {
+      var data = getTopCountries(d3.selectAll('.country').data(), year);
+      var xScale = d3.scalePoint()
+                     .domain(data.map(country => country.properties.name))
+                     .range([chartPadding.left, width - chartPadding.right])
+      var yScale = d3.scaleLinear()
+                     .domain([0, maxDestruction])
+                     .range([height - chartPadding.top, chartPadding.bottom])
+      
+      var rects = svg.selectAll('rect')
+                     .data(data);
+
+      var counts = svg.selectAll('.count')
+                      .data(data);
+
+      counts.enter()
+            .append("text")
+            .merge(counts)
+              .text(d => fatalitiesAndInjuries(d.properties.years[year]))
+              .attr("class", "count")
+              .attr("x", d => xScale(d.properties.name) + ((width - chartPadding.left - chartPadding.right) / 20))
+              .attr("text-anchor", "middle")
+              .attr("y", d => chartPadding.top - chartPadding.bottom - 5 + yScale(fatalitiesAndInjuries(d.properties.years[year])))
+
+      counts.exit().remove();
+
+      rects.enter()
+           .append("rect")
+           .merge(rects)
+             .attr("x", d => xScale(d.properties.name))
+             .attr("y", d => chartPadding.top - chartPadding.bottom + yScale(fatalitiesAndInjuries(d.properties.years[year])))
+             .attr("width", (width - chartPadding.left - chartPadding.right ) / 10 - barPadding)
+             .attr("height", d => height - chartPadding.top - yScale(fatalitiesAndInjuries(d.properties.years[year])))
+             .attr('fill', function(d) {
+               var total = 0;
+               if (d.properties.years) total += fatalitiesAndInjuries(d.properties.years[year]);
+               return colorScale(total / maxDestruction);
+             });
+      rects.exit().remove();
+
+      svg.select(".axis")
+         .call(d3.axisBottom(xScale))
+         .selectAll('text')
+           .attr("transform", "translate(0, 10) rotate(-30)")
+    }
+
+    function getTopCountries(data, year) {
+      return data.filter(function(ctry) {
+        var years = ctry.properties.years;
+        return years && years[year];
+      }).sort(function(ctry1, ctry2) {
+        var ctry1Obj = ctry1.properties.years[year];
+        var ctry2Obj = ctry2.properties.years[year];
+        return fatalitiesAndInjuries(ctry2Obj) - fatalitiesAndInjuries(ctry1Obj);
+      }).slice(0,10);
+    }
+
+    function fatalitiesAndInjuries(obj) {
+      if (!obj) return 0;
+      return (obj.fatalities + obj.injured) || 0;
     }
 
     function getModernCountries(name) {
@@ -140,3 +212,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+// 

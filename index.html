@@ -2,13 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Terrorist Attacks by Country and Year</title>
+  <title>GTD Visualization</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/journal/bootstrap.min.css" rel="stylesheet" integrity="sha384-1L94saFXWAvEw88RkpRz8r28eQMvt7kG9ux3DdCqya/P3CfLNtgqzMnyaUa49Pl2" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="map"></div>
-  <p>Year: <span id="year-val"></span></p>
-  <input type="range" min="1970" max="2015" step="1" value="1970" id="year">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="navbar-text" href="#">GTD Visualization</p>
+      </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#info">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div id="map"></div>
+      </div>
+      <div class="col-sm-6">
+        <div id="chart"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-4 col-sm-offset-4">
+        <p>Year: <span id="year-val"></span></p>
+        <input type="range" min="1970" max="2015" step="1" value="1970" id="year">
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog" id="info">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">About GTD Visualization</h4>
+        </div>
+        <div class="modal-body">
+          <p>This tool visualizes global terrorism data from 1970 through 2015. Data is taken from the <a href="https://www.start.umd.edu/gtd/" target="_blank">Global Terrorism Database</a>.</p>
+          <p>To see changes in terrorist attacks over time, use the slider to change the year. Data is unavailable for the year 1993 (for details on why, check out the GTD <a href="https://www.start.umd.edu/gtd/faq/" target="_blank">FAQ</a>).</p>
+          <p>On the left, you can see a heat map for terrorist attacks by country for each year. On the right is a bar graph highlighting the (at most) top 10 countries impacted by terrorism for that year. In each graph, the numbers associated with each country represent the number of injuries and fatalities caused by terrorism in that country for that year.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Latest compiled and minified JavaScript -->
+  <script
+    src="https://code.jquery.com/jquery-3.1.1.js"
+    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="https://d3js.org/d3.v4.js"></script>
   <script src="https://d3js.org/topojson.v2.js"></script>
   <script src="app.js"></script>
