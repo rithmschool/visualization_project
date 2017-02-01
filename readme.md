@@ -25,6 +25,7 @@ Here are some ideas for sources of data. This list is by no means exhaustive, fe
 - [MLB Home Run Data](http://www.hittrackeronline.com/)
 - [Historical Weather Data](https://www.wunderground.com/history/)
 - [The Price is Right Stats](http://tpirstats.com/)
+- [Historical Stock Price data](http://www.nasdaq.com/quotes/historical-quotes.aspx)
 - [Craigslist](https://sfbay.craigslist.org/)
 - [Hacker News](https://news.ycombinator.com/)
 
