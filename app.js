@@ -11,9 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
   };
 
   d3.queue()
-    .defer(d3.csv, '/attacks.csv')
-    .defer(d3.json, '/world_countries.json')
+    .defer(d3.csv, './attacks.csv')
+    .defer(d3.json, './world_countries.json')
     .await(function(error, attacks, countries) {
+      if (error) console.log(error);
+
       var year = document.getElementById("year");
       var maxDestruction = 0;
 
