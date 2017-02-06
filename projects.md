@@ -9,4 +9,4 @@
 | James  | |
 | Joel   | |
 | Tommy  | |
-| Torre  | |
+| Torre  | http://bicyclistfatalitydatavisualization.bitballoon.com/
