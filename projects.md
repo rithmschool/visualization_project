@@ -8,5 +8,5 @@
 | Divya  | | 
 | James  | |
 | Joel   | |
-| Tommy  | |
+| Tommy  | https://tbobarino.github.io/D3-Visualization-Project/ |
 | Torre  | http://bicyclistfatalitydatavisualization.bitballoon.com/
