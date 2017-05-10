@@ -1,5 +1,7 @@
 # Visualization Projects
 
+# Rithm 2
+
 | Name   | Link |
 |--------|------|
 | Aaron  | |
@@ -10,3 +12,18 @@
 | Joel   | |
 | Tommy  | https://tbobarino.github.io/D3-Visualization-Project/ |
 | Torre  | http://bicyclistfatalitydatavisualization.bitballoon.com/
+
+# Rithm 3
+
+| Name   | Link |
+|--------|------|
+| Albert  | |
+| Amanda  | |
+| Arthur   | |
+| Dan  | |
+| Julia | | 
+| Katie  | | 
+| Polina  | |
+| Shriya | | 
+| Tobi   | |
+| Vivian | | 
