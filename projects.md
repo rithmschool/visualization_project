@@ -24,6 +24,6 @@
 | Julia | | 
 | Katie  | | 
 | Polina  | |
-| Shriya | | 
+| Shriya | http://shriyanevatia.com/biz_movies/ | 
 | Tobi   | |
 | Vivian | https://v-lai.github.io/popular_music/ | 
