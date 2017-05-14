@@ -22,7 +22,7 @@
 | Arthur   | |
 | Dan  | |
 | Julia | | 
-| Katie  | | 
+| Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
 | Polina  | |
 | Shriya | | 
 | Tobi   | |
