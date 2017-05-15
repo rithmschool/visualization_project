@@ -19,7 +19,7 @@
 |--------|------|
 | Albert  | |
 | Amanda  | |
-| Arthur   | |
+| Arthur   |http://artukam-epl-stats.bitballoon.com/ |
 | Dan  | |
 | Julia | https://juliahazer.github.io/chart-my-team/
 | Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
