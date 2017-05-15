@@ -25,5 +25,5 @@
 | Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
 | Polina  | |
 | Shriya | http://shriyanevatia.com/top-books/ | 
-| Tobi   | |
+| Tobi   | http://tobi-yclist.bitballoon.com/ |
 | Vivian | https://v-lai.github.io/popular_music/ | 
