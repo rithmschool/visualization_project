@@ -21,7 +21,7 @@
 | Amanda  | |
 | Arthur   | |
 | Dan  | |
-| Julia | | 
+| Julia | https://juliahazer.github.io/chart-my-team/
 | Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
 | Polina  | |
 | Shriya | http://shriyanevatia.com/top-books/ | 
