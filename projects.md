@@ -21,9 +21,9 @@
 | Amanda  | |
 | Arthur   | |
 | Dan  | |
-| Julia | | 
-| Katie  | | 
+| Julia | https://juliahazer.github.io/chart-my-team/
+| Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
 | Polina  | |
-| Shriya | | 
-| Tobi   | http://tobi-yclist.bitballoon.com/
+| Shriya | http://shriyanevatia.com/top-books/ | 
+| Tobi   | http://tobi-yclist.bitballoon.com/ |
 | Vivian | https://v-lai.github.io/popular_music/ | 
