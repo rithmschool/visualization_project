@@ -1,17 +1,23 @@
 # Visualization Projects
 
-# Rithm 2
+# Rithm 4
 
-| Name   | Link |
-|--------|------|
-| Aaron  | |
-| Andrew | http://presapproval.bitballoon.com | 
-| Aric   | |
-| Divya  | | 
-| James  | |
-| Joel   | |
-| Tommy  | https://tbobarino.github.io/D3-Visualization-Project/ |
-| Torre  | http://bicyclistfatalitydatavisualization.bitballoon.com/
+| Name | Link |
+|------|------|
+| Adele | | 
+| AJ | | 
+| Brian | | 
+| Chaim | |
+| Chitwant | |
+| Geoff | |
+| Jonathan | |
+| Kevin | |
+| Matt | | 
+| Michael | |
+| Michelle | |
+| Renwick | |
+| Rob | | 
+| Sarah | |
 
 # Rithm 3
 
@@ -27,3 +33,16 @@
 | Shriya | http://shriyanevatia.com/top-books/ | 
 | Tobi   | http://tobi-yclist.bitballoon.com/ |
 | Vivian | https://v-lai.github.io/popular_music/ | 
+
+# Rithm 2
+
+| Name   | Link |
+|--------|------|
+| Aaron  | |
+| Andrew | http://presapproval.bitballoon.com | 
+| Aric   | |
+| Divya  | | 
+| James  | |
+| Joel   | |
+| Tommy  | https://tbobarino.github.io/D3-Visualization-Project/ |
+| Torre  | http://bicyclistfatalitydatavisualization.bitballoon.com/
