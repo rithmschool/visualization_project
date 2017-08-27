@@ -4,19 +4,19 @@
 
 | Name | Link |
 |------|------|
-| Adele | | 
-| AJ | | 
-| Brian | | 
+| Adele | |
+| AJ | |
+| Brian | |
 | Chaim | |
 | Chitwant | |
 | Geoff | |
 | Jonathan | |
 | Kevin | |
-| Matt | | 
+| Matt | |
 | Michael | |
 | Michelle | |
 | Renwick | |
-| Rob | | 
+| Rob | https://bigrobsf.github.io/exoplanets/ | 
 | Sarah | |
 
 # Rithm 3
@@ -28,20 +28,20 @@
 | Arthur   |http://artukam-epl-stats.bitballoon.com/ |
 | Dan  | |
 | Julia | https://juliahazer.github.io/chart-my-team/
-| Katie  | https://katielkrieger.github.io/bay_area_air_quality/ | 
+| Katie  | https://katielkrieger.github.io/bay_area_air_quality/ |
 | Polina  | |
-| Shriya | http://shriyanevatia.com/top-books/ | 
+| Shriya | http://shriyanevatia.com/top-books/ |
 | Tobi   | http://tobi-yclist.bitballoon.com/ |
-| Vivian | https://v-lai.github.io/popular_music/ | 
+| Vivian | https://v-lai.github.io/popular_music/ |
 
 # Rithm 2
 
 | Name   | Link |
 |--------|------|
 | Aaron  | |
-| Andrew | http://presapproval.bitballoon.com | 
+| Andrew | http://presapproval.bitballoon.com |
 | Aric   | |
-| Divya  | | 
+| Divya  | |
 | James  | |
 | Joel   | |
 | Tommy  | https://tbobarino.github.io/D3-Visualization-Project/ |
