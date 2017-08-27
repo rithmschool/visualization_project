@@ -6,7 +6,7 @@
 |------|------|
 | Adele | |
 | AJ | |
-| Brian | |
+| Brian | https://explodedzombie.github.io/ |
 | Chaim | |
 | Chitwant | |
 | Geoff | |
