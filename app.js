@@ -23,15 +23,26 @@ document.addEventListener("DOMContentLoaded", function(){
     // var xAxis = d3.axisBottom(xScale);
     // var yAxis = d3.axisLeft(yScale);
 
-    var svg = d3.select("svg");
-    var width = 960;
-    var height = 600;
+    // var width = 960;
+    // var height = 600;
     var padding = 50;
 
+    // Mike Bostock "margin conventions"
+    var margin = {top: 20, right: 20, bottom: 30, left: 40},
+        width = 960 - margin.left - margin.right,
+        height = 500 - margin.top - margin.bottom;
+
+    var svg = d3.select("svg")
+                .attr("width", width + margin.left + margin.right)
+                .attr("height", height + margin.top + margin.bottom);
+
     // grabbing all unique countries for the dropdown list
-    var countries = new Set(data.map(function(val) {
-      return val.country;
-    }));
+    var countries = new Set();
+    for (let i = 0; i < data.length; i++) {
+      if (countries.has(data[i].country) === false) {
+        countries.add(data[i].country);
+      }
+    }
 
     // convert countries back to arr because d3 won't work with a set
     countries = [...countries];
@@ -72,8 +83,26 @@ document.addEventListener("DOMContentLoaded", function(){
       var yScale = d3.scaleLinear()
                      .domain(d3.extent(dataForSelectedCountry, d => d.birthsPerThousand))
                      .range([height - padding, padding]);
-      var xAxis = d3.axisBottom(xScale);
+      var xAxis = d3.axisBottom(xScale).ticks(40);
       var yAxis = d3.axisLeft(yScale);
+  
+      svg.append("g")
+            .attr("transform", "translate(0, " + height + ")")
+            .call(xAxis)
+            .selectAll("text")
+              .style("text-anchor", "end")
+              .attr("transform", "rotate(-65)");
+      svg
+        .append("g")
+        .attr("transform", "translate(" + padding + ", 0)")
+        .call(yAxis)
+
+      svg
+        .append("text")
+          .text("Year")
+          .attr("x", width/2)
+          .attr("y", height+padding)
+          .style("text-anchor", "middle");
 
       svg
         .selectAll("rect")
@@ -84,12 +113,12 @@ document.addEventListener("DOMContentLoaded", function(){
         .attr("width", 10)
         // .attr("y", dataForSelectedCountry.birthsPerThousand)
         .attr("y", function(d) {return yScale(d.birthsPerThousand); })
-        .attr("height", function(d) {return height-yScale(d.birthsPerThousand)})
-        .attr("fill", "red");
-
-      // // go back into the data and get necessary information
-      // // bind to things
-      console.log(selectedCountry);
+        .attr("height", 0)
+        .transition()
+        .duration(1000)
+        .ease(d3.easeLinear)
+          .attr("height", function(d) {return height-yScale(d.birthsPerThousand)})
+          .attr("fill", "red");
     }
   }); // end second callback
 }); // end DOMload
